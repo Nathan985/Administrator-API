@@ -5,7 +5,6 @@ export const UserRepository = [
   {
     provide: 'UserRepository',
     useFactory: (dataSource: DataSource) => {
-      console.log(dataSource);
       return dataSource.getRepository(User);
     },
     inject: ['DATA_SOURCE'],

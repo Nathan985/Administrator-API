@@ -1,4 +1,3 @@
-import { User } from 'src/entities/user.entity';
 import { DataSource } from 'typeorm';
 
 export const databaseProviders = [
@@ -12,7 +11,9 @@ export const databaseProviders = [
         username: process.env.MYSQL_USER,
         password: process.env.MYSQL_PASS,
         database: process.env.MYSQL_DB,
-        entities: [User],
+        entities: ['dist/entities/*.entity.js'],
+        synchronize: true,
+        logging: true,
       });
 
       return dataSource.initialize();
